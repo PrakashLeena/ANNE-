@@ -20,16 +20,34 @@ router.post('/', async (req, res) => {
       auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
     });
 
-    await transporter.sendMail({
-      from: `"${name}" <${email}>`,
-      to: process.env.SMTP_TO || process.env.SMTP_USER,
-      subject: `Anne Contact Form: ${subject || 'New Message'}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+    const info = await transporter.sendMail({
+      from: `"${name}" <${process.env.SMTP_USER || 'no-reply@anne.studio'}>`, // sender address
+      replyTo: email,
+      to: process.env.SMTP_TO || "hello@anne.studio", // list of recipients
+      subject: `Anne Contact Form: ${subject || 'New Message'}`, // subject line
+      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`, // plain text body
+      html: `
+        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+          <h2 style="color: #ba9eff;">New Contact Message</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Subject:</strong> ${subject}</p>
+          <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
+          <p style="white-space: pre-wrap;">${message}</p>
+        </div>
+      `, // HTML body
     });
+
+    console.log("Message sent: %s", info.messageId);
+    
+    // Preview URL is only available when using an Ethereal test account
+    if (info.messageId.includes('ethereal')) {
+      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    }
 
     res.json({ status: 'ok' });
   } catch (err) {
-    console.error('Email error:', err);
+    console.error("Error while sending mail:", err);
     res.status(500).json({ error: 'Failed to send message' });
   }
 });
