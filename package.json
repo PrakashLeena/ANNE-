@@ -1,0 +1,10 @@
+{
+  "name": "anne-monorepo",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix anne-client install && npm --prefix anne-server install",
+    "build": "npm --prefix anne-client run build",
+    "dev": "npm --prefix anne-client run dev",
+    "start": "npm --prefix anne-client run preview"
+  }
+}
