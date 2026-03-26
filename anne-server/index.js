@@ -16,6 +16,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+export default app;
+
 // ── Middleware ──
 app.use(cors({
   origin: ['http://localhost:5173', 'http://localhost:3000', process.env.CLIENT_URL].filter(Boolean),
@@ -34,6 +36,7 @@ app.use('/api/upload',    uploadRoutes);
 
 // ── Health check ──
 app.get('/health', (_req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
+app.get('/api/health', (_req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
 
 // ── Error handler ──
 app.use((err, _req, res, _next) => {
@@ -42,7 +45,7 @@ app.use((err, _req, res, _next) => {
 });
 
 // ── DB + Start ──
-const start = async () => {
+export const start = async () => {
   try {
     const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/anne';
     await mongoose.connect(mongoUri);
@@ -54,4 +57,6 @@ const start = async () => {
   }
 };
 
-start();
+if (!process.env.VERCEL && process.argv[1] && process.argv[1].endsWith('index.js')) {
+  start();
+}
