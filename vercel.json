@@ -1,7 +1,18 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "anne-client/dist",
+  "builds": [
+    {
+      "src": "anne-client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "api/[...path].mjs",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
       "handle": "filesystem"
