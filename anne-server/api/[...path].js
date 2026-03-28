@@ -5,7 +5,7 @@ let appPromise;
 
 async function getApp() {
   if (!appPromise) {
-    appPromise = import('../anne-server/index.js').then((m) => m.default);
+    appPromise = import('../index.js').then((m) => m.default);
   }
   return appPromise;
 }

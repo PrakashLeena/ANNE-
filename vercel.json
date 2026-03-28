@@ -9,7 +9,7 @@
       }
     },
     {
-      "src": "api/[...path].js",
+      "src": "anne-server/api/[...path].js",
       "use": "@vercel/node"
     }
   ],
