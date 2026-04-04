@@ -11,7 +11,7 @@ export default function ContactPage() {
     e.preventDefault();
     try {
       setStatus('sending');
-      await api.post('/api/contact', form);
+      await api.post('/contact', form);
       setStatus('sent');
       setForm({ name:'', email:'', subject:'', message:'' });
     } catch (err) {

@@ -1,7 +1,9 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   onAuthStateChanged,
   updateProfile,
@@ -24,7 +26,7 @@ export function AuthProvider({ children }) {
         setUser(firebaseUser);
         // Sync user with MongoDB
         try {
-          await api.post('/api/auth/sync', {
+          await api.post('/auth/sync', {
             uid: firebaseUser.uid,
             name: firebaseUser.displayName,
             email: firebaseUser.email,
@@ -46,10 +48,11 @@ export function AuthProvider({ children }) {
   };
 
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password);
+  const loginWithGoogle = () => signInWithPopup(auth, new GoogleAuthProvider());
   const logout = () => signOut(auth);
 
   return (
-    <AuthContext.Provider value={{ user, loading, isAdmin, signup, login, logout }}>
+    <AuthContext.Provider value={{ user, loading, isAdmin, signup, login, loginWithGoogle, logout }}>
       {!loading && children}
     </AuthContext.Provider>
   );

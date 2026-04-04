@@ -17,7 +17,7 @@ export default function ProfilePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    api.get('/api/orders/mine').then(r => setOrders(r.data)).catch(() => {}).finally(() => setLoading(false));
+    api.get('/orders/mine').then(r => setOrders(r.data)).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
   const handleLogout = async () => { await logout(); navigate('/'); };

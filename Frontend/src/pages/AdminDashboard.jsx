@@ -24,12 +24,12 @@ export default function AdminDashboard() {
   }, [user, isAdmin]);
 
   useEffect(() => {
-    api.get('/api/admin/orders').then(r => setOrders(r.data)).catch(() => {}).finally(() => setLoading(false));
+    api.get('/admin/orders').then(r => setOrders(r.data)).catch(() => {}).finally(() => setLoading(false));
   }, []);
 
   const updateStatus = async (id, status) => {
     try {
-      await api.patch(`/api/orders/${id}/status`, { status });
+      await api.patch(`/orders/${id}/status`, { status });
       setOrders(prev => prev.map(o => o._id === id ? { ...o, status } : o));
     } catch (e) { alert('Failed to update status.'); }
   };

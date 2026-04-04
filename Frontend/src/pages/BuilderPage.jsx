@@ -60,7 +60,7 @@ export default function BuilderPage() {
         const c = COMPS.find(x => x.id === id);
         return { id, name: c?.name, price: c?.price };
       });
-      await api.post('/api/orders', { components, totalPrice: total, notes, contactEmail });
+      await api.post('/orders', { components, totalPrice: total, notes, contactEmail });
       setSubmitted(true);
       clear();
     } catch (e) {

@@ -9,7 +9,7 @@ export default function LoginPage() {
   const [pass, setPass]   = useState('');
   const [err, setErr]     = useState('');
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -21,6 +21,17 @@ export default function LoginPage() {
       navigate('/profile');
     } catch (e) {
       setErr(e.message?.replace('Firebase: ', '') || 'Login failed. Check your credentials.');
+    } finally { setLoading(false); }
+  };
+
+  const handleGoogle = async () => {
+    setErr('');
+    try {
+      setLoading(true);
+      await loginWithGoogle();
+      navigate('/profile');
+    } catch (e) {
+      setErr(e.message?.replace('Firebase: ', '') || 'Google sign-in failed.');
     } finally { setLoading(false); }
   };
 
@@ -42,6 +53,9 @@ export default function LoginPage() {
           <div style={{ margin:'20px 0', borderTop:'1px solid rgba(64,72,93,.3)', position:'relative', textAlign:'center' }}>
             <span style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', background:'var(--surface-container)', padding:'0 12px', fontSize:'.72rem', color:'var(--outline)' }}>OR</span>
           </div>
+          <button type="button" className="btn-primary" onClick={handleGoogle} style={{ width:'100%', justifyContent:'center', background:'#ffffff', color:'#111827', border:'1px solid rgba(64,72,93,.3)', opacity: loading ? .7 : 1 }} disabled={loading}>
+            Continue with Google
+          </button>
           <p style={{ textAlign:'center', fontSize:'.82rem', color:'var(--outline)' }}>
             Don't have an account?{' '}
             <Link to="/signup" style={{ color:'var(--primary)', fontWeight:600, textDecoration:'none' }}>Sign up</Link>

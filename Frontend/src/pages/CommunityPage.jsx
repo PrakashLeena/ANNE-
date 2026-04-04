@@ -10,7 +10,7 @@ export default function CommunityPage() {
   const [content, setContent] = useState('');
   const [posting, setPosting] = useState(false);
 
-  const fetchPosts = () => api.get('/api/community').then(r => setPosts(r.data)).catch(() => {}).finally(() => setLoading(false));
+  const fetchPosts = () => api.get('/community').then(r => setPosts(r.data)).catch(() => {}).finally(() => setLoading(false));
   useEffect(() => { fetchPosts(); }, []);
 
   const handlePost = async () => {
@@ -18,7 +18,7 @@ export default function CommunityPage() {
     if (!user) return alert('Please sign in to post.');
     try {
       setPosting(true);
-      await api.post('/api/community', { content: content.trim(), authorName: user.displayName || user.email });
+      await api.post('/community', { content: content.trim(), authorName: user.displayName || user.email });
       setContent('');
       fetchPosts();
     } catch (e) { alert('Post failed.'); } finally { setPosting(false); }
@@ -27,7 +27,7 @@ export default function CommunityPage() {
   const handleLike = async (id) => {
     if (!user) return alert('Please sign in to like.');
     try {
-      await api.post(`/api/community/${id}/like`);
+      await api.post(`/community/${id}/like`);
       fetchPosts();
     } catch (e) {}
   };
@@ -38,7 +38,7 @@ export default function CommunityPage() {
     if (!text) return;
     if (!user) return alert('Please sign in to comment.');
     try {
-      await api.post(`/api/community/${id}/comment`, { text, authorName: user.displayName || user.email });
+      await api.post(`/community/${id}/comment`, { text, authorName: user.displayName || user.email });
       setCommentText(prev => ({ ...prev, [id]: '' }));
       fetchPosts();
     } catch (e) {}
