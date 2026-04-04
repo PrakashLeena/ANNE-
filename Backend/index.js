@@ -34,6 +34,8 @@ app.use('/api/contact',   contactRoutes);
 app.use('/api/admin',     adminRoutes);
 app.use('/api/upload',    uploadRoutes);
 
+app.get('/', (_req, res) => res.json({ status: 'ok', message: 'Anne API is running' }));
+
 // ── Health check ──
 app.get('/health', (_req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
 app.get('/api/health', (_req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
