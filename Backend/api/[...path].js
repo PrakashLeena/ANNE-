@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 let mongoInitPromise;
 let appPromise;
@@ -25,8 +25,8 @@ async function initMongo() {
   }
 }
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   await initMongo();
   const app = await getApp();
   return app(req, res);
-};
+}
