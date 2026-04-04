@@ -1,0 +1,31 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Diagnostic reports
+node_report.json
+OOM_ERROR_report.json
+
+# Dependencies
+node_modules/
+dist/
+dist-ssr/
+build/
+.npm/
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
