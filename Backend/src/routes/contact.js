@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     const info = await transporter.sendMail({
       from: `"${name}" <${process.env.SMTP_USER || 'no-reply@anne.studio'}>`, // sender address
       replyTo: email,
-      to: process.env.SMTP_TO || "hello@anne.studio", // list of recipients
+      to: process.env.SMTP_TO || "kiboxsonleena51@gmail.com", // list of recipients
       subject: `Anne Contact Form: ${subject || 'New Message'}`, // subject line
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`, // plain text body
       html: `

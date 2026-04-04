@@ -33,7 +33,7 @@ export default function ContactPage() {
         {/* Left info */}
         <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
           {[
-            { icon:'📧', title:'Email', val:'hello@anne.studio', sub:'We reply within 24 hrs' },
+            { icon:'📧', title:'Email', val:'kiboxsonleena51@gmail.com', sub:'We reply within 24 hrs' },
             { icon:'💬', title:'Live Chat', val:'Available in-app', sub:'Mon-Fri 9am–6pm IST' },
             { icon:'🌍', title:'Location', val:'Remote-first studio', sub:'Serving clients worldwide' },
           ].map(item => (
@@ -79,7 +79,7 @@ export default function ContactPage() {
               </div>
               {status === 'error' && (
                 <div style={{ fontSize:'.78rem', color:'var(--error)', background:'rgba(255,110,132,.08)', padding:'10px 14px', borderRadius:'.5rem', borderLeft:'3px solid var(--error)' }}>
-                  Failed to send. Please email us directly at hello@anne.studio
+                  Failed to send. Please email us directly at kiboxsonleena51@gmail.com
                 </div>
               )}
               <button type="submit" className="btn-primary" style={{ width:'100%', justifyContent:'center', opacity: status === 'sending' ? .7 : 1 }} disabled={status === 'sending'}>
