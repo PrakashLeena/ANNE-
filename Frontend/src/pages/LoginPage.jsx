@@ -41,7 +41,7 @@ export default function LoginPage() {
         <div style={{ position:'absolute', top:-80, left:-80, width:200, height:200, borderRadius:'50%', background:'rgba(83,221,252,.05)', filter:'blur(50px)', pointerEvents:'none' }} />
         <div style={{ position:'relative', zIndex:1 }}>
           <div className="pg-txt" style={{ fontSize:'1.5rem', fontWeight:700, marginBottom:4 }}>Welcome Back</div>
-          <p style={{ color:'var(--outline)', fontSize:'.82rem', marginBottom:28 }}>Sign in to your Anne account.</p>
+          <p style={{ color:'var(--outline)', fontSize:'.82rem', marginBottom:28 }}>Sign in to your ANNEK account.</p>
           <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:14 }}>
             <input style={inputStyle} type="email" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} required />
             <input style={inputStyle} type="password" placeholder="Password" value={pass} onChange={e => setPass(e.target.value)} required />

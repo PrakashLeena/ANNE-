@@ -78,7 +78,7 @@ export default function HomePage() {
             <h1 style={{ fontSize:'clamp(2.4rem,5.2vw,4rem)', fontWeight:700, lineHeight:1.07, letterSpacing:'-.03em', marginBottom:18 }}>
               Build Your Digital<br />
               <span className="pg-txt">Masterpiece</span><br />
-              with Anne.
+              with ANNEK.
             </h1>
             <p style={{ fontSize:'1rem', color:'var(--on-surface-var)', lineHeight:1.75, maxWidth:460, marginBottom:32, fontWeight:300 }}>Select, Customize, and Launch. Your dream website, perfectly tailored to your brand's DNA.</p>
             <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
@@ -150,7 +150,7 @@ export default function HomePage() {
             <div>
               <div style={{ fontSize:'.6875rem', textTransform:'uppercase', letterSpacing:'.08em', color:'var(--primary)', fontWeight:600, marginBottom:9 }}>Architectural Showcase</div>
               <h2 style={{ fontSize:'clamp(1.5rem,2.8vw,2.1rem)', fontWeight:700, letterSpacing:'-.02em' }}>Built With Precision</h2>
-              <p style={{ color:'var(--outline)', fontSize:'.8rem', marginTop:5 }}>Websites crafted on the Anne platform.</p>
+              <p style={{ color:'var(--outline)', fontSize:'.8rem', marginTop:5 }}>Websites crafted on the ANNEK platform.</p>
             </div>
           </div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:22 }}>
@@ -241,7 +241,7 @@ export default function HomePage() {
       <footer style={{ background:'var(--surface)', padding:'44px 32px', borderTop:'1px solid rgba(222,229,255,.05)' }}>
         <div style={{ maxWidth:1280, margin:'0 auto', display:'grid', gridTemplateColumns:'1.5fr 1fr 1fr 1fr', gap:28, marginBottom:36 }}>
           <div>
-            <div className="pg-txt" style={{ fontSize:'1.2rem', fontWeight:700, marginBottom:11 }}>Anne</div>
+            <div className="pg-txt" style={{ fontSize:'1.2rem', fontWeight:700, marginBottom:11 }}>ANNEK</div>
             <p style={{ fontSize:'.72rem', color:'var(--outline)', lineHeight:1.7, maxWidth:190 }}>The high-precision instrument for digital creation.</p>
           </div>
           {[
@@ -261,7 +261,7 @@ export default function HomePage() {
           ))}
         </div>
         <div style={{ maxWidth:1280, margin:'0 auto', paddingTop:20, borderTop:'1px solid rgba(222,229,255,.04)', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
-          <div style={{ fontSize:'.68rem', color:'var(--outline)' }}>© 2026 Anne Platform</div>
+          <div style={{ fontSize:'.68rem', color:'var(--outline)' }}>© 2026 ANNEK Platform</div>
           <div style={{ fontSize:'.6875rem', color:'var(--outline-var)', textTransform:'uppercase', letterSpacing:'.1em' }}>Designed for Innovation</div>
         </div>
       </footer>

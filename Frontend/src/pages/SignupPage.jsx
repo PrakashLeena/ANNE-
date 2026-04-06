@@ -34,7 +34,7 @@ export default function SignupPage() {
         <div style={{ position:'absolute', top:-80, right:-80, width:200, height:200, borderRadius:'50%', background:'rgba(186,158,255,.08)', filter:'blur(50px)', pointerEvents:'none' }} />
         <div style={{ position:'relative', zIndex:1 }}>
           <div className="pg-txt" style={{ fontSize:'1.5rem', fontWeight:700, marginBottom:4 }}>Create Account</div>
-          <p style={{ color:'var(--outline)', fontSize:'.82rem', marginBottom:28 }}>Join Anne and start building dream websites.</p>
+          <p style={{ color:'var(--outline)', fontSize:'.82rem', marginBottom:28 }}>Join ANNEK and start building dream websites.</p>
           <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:14 }}>
             <input style={inputStyle} type="text" placeholder="Full name" value={name} onChange={e => setName(e.target.value)} required />
             <input style={inputStyle} type="email" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} required />

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
+import logo from '../assets/logo.png';
 
 export default function Navbar() {
   const { user, logout, isAdmin } = useAuth();
@@ -39,7 +40,10 @@ export default function Navbar() {
         <nav style={{ display:'flex', justifyContent:'space-between', alignItems:'center', padding:'14px 32px', maxWidth:'1280px', margin:'0 auto' }}>
           {/* Logo */}
           <Link to="/" style={{ textDecoration:'none' }}>
-            <span className="pg-txt" style={{ fontSize:'1.3rem', fontWeight:700, letterSpacing:'-.04em' }}>Anne</span>
+            <span style={{ display:'inline-flex', alignItems:'center', gap:10 }}>
+              <img src={logo} alt="ANNEK" style={{ width:30, height:30, objectFit:'contain', borderRadius:6 }} />
+              <span className="pg-txt" style={{ fontSize:'1.3rem', fontWeight:700, letterSpacing:'-.04em' }}>ANNEK</span>
+            </span>
           </Link>
 
           {/* Desktop links */}
