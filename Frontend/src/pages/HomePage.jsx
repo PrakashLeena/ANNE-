@@ -16,12 +16,12 @@ function ComponentCard({ comp }) {
       <div style={{ padding:'13px', flex:1, display:'flex', flexDirection:'column' }}>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:5 }}>
           <div style={{ fontSize:'.85rem', fontWeight:600, color:'var(--on-surface)' }}>{comp.name}</div>
-          <span style={{ fontSize:'.58rem', textTransform:'uppercase', letterSpacing:'.06em', background:'rgba(186,158,255,.09)', color:'var(--primary)', padding:'2px 8px', borderRadius:'9999px', whiteSpace:'nowrap', marginLeft:7, flexShrink:0 }}>{comp.tag}</span>
+          <span style={{ fontSize:'.58rem', textTransform:'uppercase', letterSpacing:'.06em', background:'rgba(255,122,0,.10)', color:'var(--primary)', padding:'2px 8px', borderRadius:'9999px', whiteSpace:'nowrap', marginLeft:7, flexShrink:0 }}>{comp.tag}</span>
         </div>
         <div style={{ fontSize:'.72rem', color:'var(--outline)', lineHeight:1.55, marginBottom:11, flex:1 }}>{comp.desc}</div>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
           <span style={{ fontWeight:700, color:'var(--primary)', fontSize:'.88rem' }}>+${comp.price}</span>
-          <button onClick={() => toggle(comp.id)} style={{ background: sel ? 'rgba(83,221,252,.1)' : 'rgba(186,158,255,.09)', color: sel ? 'var(--secondary)' : 'var(--primary)', border: sel ? '1px solid rgba(83,221,252,.25)' : '1px solid rgba(186,158,255,.2)', padding:'5px 13px', borderRadius:'9999px', fontFamily:'Inter', fontSize:'.72rem', fontWeight:600, cursor:'pointer', transition:'all .2s' }}>
+          <button onClick={() => toggle(comp.id)} style={{ background: sel ? 'rgba(255,176,0,.12)' : 'rgba(255,122,0,.10)', color: sel ? 'var(--secondary)' : 'var(--primary)', border: sel ? '1px solid rgba(255,176,0,.28)' : '1px solid rgba(255,122,0,.22)', padding:'5px 13px', borderRadius:'9999px', fontFamily:'Inter', fontSize:'.72rem', fontWeight:600, cursor:'pointer', transition:'all .2s' }}>
             {sel ? '✓ Added' : '✦ Select'}
           </button>
         </div>
@@ -66,12 +66,12 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section style={{ position:'relative', minHeight:'88vh', display:'flex', alignItems:'center', padding:'72px 32px 56px', overflow:'hidden' }}>
-        <div style={{ position:'absolute', width:580, height:580, borderRadius:'50%', background:'rgba(186,158,255,.07)', filter:'blur(80px)', top:-180, right:-80, pointerEvents:'none' }} />
-        <div style={{ position:'absolute', width:380, height:380, borderRadius:'50%', background:'rgba(83,221,252,.05)', filter:'blur(70px)', bottom:-80, left:-80, pointerEvents:'none' }} />
+        <div style={{ position:'absolute', width:580, height:580, borderRadius:'50%', background:'rgba(255,122,0,.07)', filter:'blur(80px)', top:-180, right:-80, pointerEvents:'none' }} />
+        <div style={{ position:'absolute', width:380, height:380, borderRadius:'50%', background:'rgba(255,176,0,.06)', filter:'blur(70px)', bottom:-80, left:-80, pointerEvents:'none' }} />
         <div style={{ position:'absolute', inset:0, backgroundImage:'linear-gradient(rgba(64,72,93,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(64,72,93,.07) 1px,transparent 1px)', backgroundSize:'54px 54px', maskImage:'radial-gradient(ellipse 80% 70% at 50% 50%,black,transparent)', pointerEvents:'none' }} />
         <div style={{ maxWidth:1280, margin:'0 auto', width:'100%', display:'grid', gridTemplateColumns:'1.1fr .9fr', gap:48, alignItems:'center', position:'relative', zIndex:1 }}>
           <div style={{ animation:'fadeUp .8s ease both' }}>
-            <div style={{ display:'inline-flex', alignItems:'center', gap:7, padding:'5px 13px', borderRadius:'9999px', background:'#141f38', marginBottom:22 }}>
+            <div style={{ display:'inline-flex', alignItems:'center', gap:7, padding:'5px 13px', borderRadius:'9999px', background:'var(--surface-high)', marginBottom:22 }}>
               <span style={{ width:7, height:7, borderRadius:'50%', background:'var(--secondary)', display:'inline-block', animation:'pulse 2s infinite' }} />
               <span style={{ fontSize:'.6875rem', textTransform:'uppercase', letterSpacing:'.07em', fontWeight:600, color:'var(--secondary)' }}>The Digital Architect</span>
             </div>
@@ -188,7 +188,7 @@ export default function HomePage() {
               { name:'Agency', price:'$1499', sub:'Full-scale solution with custom development.', features:['Unlimited pages','All 39 components','Custom component dev','CMS integration','Unlimited revisions','Source code delivery'], cta:'Contact Us', featured:false },
             ].map(pkg => (
               <div key={pkg.name} className={`pkg rv${pkg.featured ? ' feat' : ''}`}>
-                {pkg.featured && <div style={{ display:'inline-block', background:'linear-gradient(135deg,#ba9eff,#8455ef)', color:'#000', fontSize:'.65rem', fontWeight:700, padding:'2px 12px', borderRadius:'9999px', marginBottom:14 }}>Most Popular</div>}
+                {pkg.featured && <div style={{ display:'inline-block', background:'linear-gradient(135deg,var(--primary),var(--primary-dim))', color:'#000', fontSize:'.65rem', fontWeight:700, padding:'2px 12px', borderRadius:'9999px', marginBottom:14 }}>Most Popular</div>}
                 <div style={{ fontSize:'1.1rem', fontWeight:700, marginBottom:7 }}>{pkg.name}</div>
                 <div style={{ fontSize:'2.3rem', fontWeight:700, letterSpacing:'-.03em', marginBottom:3 }}>{pkg.price}<span style={{ fontSize:'.9rem', fontWeight:400, color:'var(--outline)' }}>/one-time</span></div>
                 <p style={{ color:'var(--outline)', fontSize:'.78rem', lineHeight:1.7, marginBottom:20 }}>{pkg.sub}</p>
@@ -229,7 +229,7 @@ export default function HomePage() {
 
       {/* CTA */}
       <section style={{ padding:'72px 32px', background:'#000', textAlign:'center', position:'relative', overflow:'hidden' }}>
-        <div style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:500, height:250, background:'rgba(186,158,255,.1)', filter:'blur(80px)', borderRadius:'50%', pointerEvents:'none' }} />
+        <div style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:500, height:250, background:'rgba(255,122,0,.11)', filter:'blur(80px)', borderRadius:'50%', pointerEvents:'none' }} />
         <div style={{ maxWidth:640, margin:'0 auto', position:'relative', zIndex:1 }}>
           <h2 style={{ fontSize:'clamp(1.8rem,3.5vw,2.8rem)', fontWeight:700, letterSpacing:'-.03em', marginBottom:14 }}>Ready to Architect<br />Your Vision?</h2>
           <p style={{ color:'var(--outline)', fontSize:'.95rem', lineHeight:1.7, marginBottom:32 }}>Join creators pushing the boundaries of what a website can be.</p>

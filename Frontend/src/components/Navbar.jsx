@@ -32,7 +32,7 @@ export default function Navbar() {
     <>
       <header style={{
         position: 'sticky', top: 0, zIndex: 50,
-        background: scrolled ? 'rgba(9,19,40,0.95)' : '#091328',
+        background: scrolled ? 'rgba(14,18,21,0.95)' : 'var(--surface-low)',
         borderBottom: '1px solid rgba(64,72,93,0.15)',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
         transition: 'all .3s',
@@ -72,9 +72,9 @@ export default function Navbar() {
             )}
             {user ? (
               <div style={{ display:'flex', gap:'10px', alignItems:'center' }}>
-                {isAdmin && <Link to="/admin" className="btn-outline" style={{ padding:'8px 16px', fontSize:'.78rem', textDecoration:'none', borderRadius:'9999px', color:'var(--secondary)', border:'1px solid rgba(83,221,252,.3)' }}>Admin</Link>}
+                {isAdmin && <Link to="/admin" className="btn-outline" style={{ padding:'8px 16px', fontSize:'.78rem', textDecoration:'none', borderRadius:'9999px', color:'var(--secondary)', border:'1px solid rgba(255,176,0,.35)' }}>Admin</Link>}
                 <Link to="/profile" style={{ textDecoration:'none' }}>
-                  <div style={{ width:34, height:34, borderRadius:'50%', background:'linear-gradient(135deg,#ba9eff,#8455ef)', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', fontSize:'.85rem' }}>
+                  <div style={{ width:34, height:34, borderRadius:'50%', background:'linear-gradient(135deg,var(--primary),var(--primary-dim))', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', fontSize:'.85rem' }}>
                     {(user.displayName || user.email)?.[0]?.toUpperCase()}
                   </div>
                 </Link>

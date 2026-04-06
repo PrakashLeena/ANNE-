@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-const inputStyle = { width:'100%', background:'#141f38', border:'none', borderBottom:'1.5px solid var(--outline)', borderRadius:'.5rem .5rem 0 0', padding:'14px 16px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.9rem', outline:'none' };
+const inputStyle = { width:'100%', background:'var(--surface-high)', border:'none', borderBottom:'1.5px solid var(--outline)', borderRadius:'.5rem .5rem 0 0', padding:'14px 16px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.9rem', outline:'none' };
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -38,7 +38,7 @@ export default function LoginPage() {
   return (
     <div style={{ minHeight:'90vh', display:'flex', alignItems:'center', justifyContent:'center', padding:'40px 24px' }}>
       <div style={{ background:'var(--surface-container)', borderRadius:'1.25rem', padding:'40px 36px', width:'100%', maxWidth:420, position:'relative', overflow:'hidden' }}>
-        <div style={{ position:'absolute', top:-80, left:-80, width:200, height:200, borderRadius:'50%', background:'rgba(83,221,252,.05)', filter:'blur(50px)', pointerEvents:'none' }} />
+        <div style={{ position:'absolute', top:-80, left:-80, width:200, height:200, borderRadius:'50%', background:'rgba(255,122,0,.10)', filter:'blur(50px)', pointerEvents:'none' }} />
         <div style={{ position:'relative', zIndex:1 }}>
           <div className="pg-txt" style={{ fontSize:'1.5rem', fontWeight:700, marginBottom:4 }}>Welcome Back</div>
           <p style={{ color:'var(--outline)', fontSize:'.82rem', marginBottom:28 }}>Sign in to your ANNEK account.</p>

@@ -6,7 +6,7 @@ import api from '../lib/api';
 const STATUS_OPTIONS = ['pending','in-progress','completed','cancelled'];
 const STATUS_COLORS = {
   pending:     { bg:'rgba(247,151,30,.1)',   color:'#f7971e' },
-  'in-progress':{ bg:'rgba(83,221,252,.1)',  color:'#53ddfc' },
+  'in-progress':{ bg:'rgba(255,176,0,.12)',  color:'var(--secondary)' },
   completed:   { bg:'rgba(67,233,123,.1)',   color:'#43e97b' },
   cancelled:   { bg:'rgba(255,110,132,.1)',  color:'#ff6e84' },
 };
@@ -51,7 +51,7 @@ export default function AdminDashboard() {
           <h1 style={{ fontSize:'1.6rem', fontWeight:700 }}>Dashboard</h1>
         </div>
         <div style={{ display:'flex', alignItems:'center', gap:10 }}>
-          <div style={{ width:36, height:36, borderRadius:'50%', background:'linear-gradient(135deg,#ba9eff,#8455ef)', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000' }}>
+          <div style={{ width:36, height:36, borderRadius:'50%', background:'linear-gradient(135deg,var(--primary),var(--primary-dim))', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000' }}>
             {user?.displayName?.[0] || 'A'}
           </div>
           <div>
@@ -103,7 +103,7 @@ export default function AdminDashboard() {
                         <div style={{ fontSize:'.78rem', color:'var(--outline)', marginBottom:8 }}>📧 {order.contactEmail} • {new Date(order.createdAt).toLocaleDateString()}</div>
                         <div style={{ display:'flex', flexWrap:'wrap', gap:5, marginBottom:8 }}>
                           {order.components?.map(c => (
-                            <span key={c.id} style={{ background:'rgba(186,158,255,.07)', color:'var(--primary)', fontSize:'.62rem', padding:'2px 8px', borderRadius:'9999px' }}>{c.name}</span>
+                            <span key={c.id} style={{ background:'rgba(255,122,0,.085)', color:'var(--primary)', fontSize:'.62rem', padding:'2px 8px', borderRadius:'9999px' }}>{c.name}</span>
                           ))}
                         </div>
                         {order.notes && <div style={{ fontSize:'.75rem', color:'var(--outline)', fontStyle:'italic', background:'var(--surface-high)', borderRadius:'.5rem', padding:'8px 12px', borderLeft:'2px solid var(--outline-var)' }}>{order.notes}</div>}

@@ -18,12 +18,12 @@ function CompCard({ comp }) {
       <div style={{ padding:'13px', flex:1, display:'flex', flexDirection:'column' }}>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:5 }}>
           <div style={{ fontSize:'.85rem', fontWeight:600, color:'var(--on-surface)' }}>{comp.name}</div>
-          <span style={{ fontSize:'.55rem', textTransform:'uppercase', background:'rgba(186,158,255,.09)', color:'var(--primary)', padding:'2px 7px', borderRadius:'9999px', whiteSpace:'nowrap', marginLeft:7, flexShrink:0 }}>{comp.tag}</span>
+          <span style={{ fontSize:'.55rem', textTransform:'uppercase', background:'rgba(255,122,0,.10)', color:'var(--primary)', padding:'2px 7px', borderRadius:'9999px', whiteSpace:'nowrap', marginLeft:7, flexShrink:0 }}>{comp.tag}</span>
         </div>
         <div style={{ fontSize:'.72rem', color:'var(--outline)', lineHeight:1.5, marginBottom:10, flex:1 }}>{comp.desc}</div>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
           <span style={{ fontWeight:700, color:'var(--primary)', fontSize:'.85rem' }}>+${comp.price}</span>
-          <button onClick={() => toggle(comp.id)} style={{ background: sel ? 'rgba(83,221,252,.1)' : 'rgba(186,158,255,.09)', color: sel ? 'var(--secondary)' : 'var(--primary)', border: sel ? '1px solid rgba(83,221,252,.25)' : '1px solid rgba(186,158,255,.2)', padding:'5px 13px', borderRadius:'9999px', fontSize:'.72rem', fontWeight:600, cursor:'pointer', transition:'all .2s', fontFamily:'Inter' }}>
+          <button onClick={() => toggle(comp.id)} style={{ background: sel ? 'rgba(255,176,0,.12)' : 'rgba(255,122,0,.10)', color: sel ? 'var(--secondary)' : 'var(--primary)', border: sel ? '1px solid rgba(255,176,0,.28)' : '1px solid rgba(255,122,0,.22)', padding:'5px 13px', borderRadius:'9999px', fontSize:'.72rem', fontWeight:600, cursor:'pointer', transition:'all .2s', fontFamily:'Inter' }}>
             {sel ? '✓ Added' : '✦ Select'}
           </button>
         </div>
@@ -101,7 +101,7 @@ export default function BuilderPage() {
               return (
                 <div key={cat.k}>
                   <div style={{ display:'flex', alignItems:'center', gap:11, marginBottom:16 }}>
-                    <div style={{ width:32, height:32, borderRadius:'.5rem', background:'rgba(186,158,255,.09)', border:'1px solid rgba(186,158,255,.18)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'.95rem' }}>{cat.i}</div>
+                    <div style={{ width:32, height:32, borderRadius:'.5rem', background:'rgba(255,122,0,.10)', border:'1px solid rgba(255,122,0,.22)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'.95rem' }}>{cat.i}</div>
                     <span style={{ fontSize:'.95rem', fontWeight:600, color:'var(--on-surface)' }}>{cat.l}</span>
                     <span style={{ fontSize:'.68rem', color:'var(--outline)', background:'var(--surface-high)', padding:'2px 9px', borderRadius:'9999px' }}>{comps.length} styles</span>
                   </div>
@@ -131,7 +131,7 @@ export default function BuilderPage() {
                 const c = COMPS.find(x => x.id === id);
                 if (!c) return null;
                 return (
-                  <div key={id} style={{ background:'rgba(186,158,255,.07)', border:'1px solid rgba(186,158,255,.18)', borderRadius:'.5rem', padding:'9px 13px', display:'flex', justifyContent:'space-between', alignItems:'center', fontSize:'.78rem' }}>
+                  <div key={id} style={{ background:'rgba(255,122,0,.075)', border:'1px solid rgba(255,122,0,.20)', borderRadius:'.5rem', padding:'9px 13px', display:'flex', justifyContent:'space-between', alignItems:'center', fontSize:'.78rem' }}>
                     <span style={{ fontWeight:500, color:'var(--on-surface)' }}>{c.name}</span>
                     <button onClick={() => remove(id)} style={{ background:'none', border:'none', color:'var(--outline)', cursor:'pointer', fontSize:'.85rem', transition:'color .2s' }}
                       onMouseEnter={e => e.target.style.color='var(--error)'}
@@ -155,10 +155,10 @@ export default function BuilderPage() {
           )}
 
           {!user && (
-            <input style={{ width:'100%', background:'#141f38', border:'none', borderBottom:'1.5px solid var(--outline)', borderRadius:'.5rem .5rem 0 0', padding:'11px 14px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.8rem', outline:'none', marginTop:14 }}
+            <input style={{ width:'100%', background:'var(--surface-high)', border:'none', borderBottom:'1.5px solid var(--outline)', borderRadius:'.5rem .5rem 0 0', padding:'11px 14px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.8rem', outline:'none', marginTop:14 }}
               type="email" placeholder="Your email address" value={email} onChange={e => setEmail(e.target.value)} />
           )}
-          <textarea style={{ width:'100%', background:'#141f38', border:'none', borderBottom:'1.5px solid var(--outline)', borderRadius:'.5rem .5rem 0 0', padding:'11px 14px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.8rem', outline:'none', marginTop:10, resize:'vertical', minHeight:72 }}
+          <textarea style={{ width:'100%', background:'var(--surface-high)', border:'none', borderBottom:'1.5px solid var(--outline)', borderRadius:'.5rem .5rem 0 0', padding:'11px 14px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.8rem', outline:'none', marginTop:10, resize:'vertical', minHeight:72 }}
             placeholder="Notes / requirements (optional)" value={notes} onChange={e => setNotes(e.target.value)} />
 
           <button onClick={handleSubmit} className="btn-primary" style={{ width:'100%', justifyContent:'center', marginTop:14, opacity: submitting ? .7 : 1 }} disabled={submitting}>

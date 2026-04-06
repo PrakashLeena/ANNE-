@@ -38,7 +38,7 @@ export default function ContactPage() {
             { icon:'🌍', title:'Location', val:'Remote-first studio', sub:'Serving clients worldwide' },
           ].map(item => (
             <div key={item.title} style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px', display:'flex', gap:16, alignItems:'flex-start' }}>
-              <div style={{ width:44, height:44, borderRadius:'.75rem', background:'rgba(186,158,255,.09)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1.25rem', flexShrink:0 }}>{item.icon}</div>
+              <div style={{ width:44, height:44, borderRadius:'.75rem', background:'rgba(255,122,0,.10)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1.25rem', flexShrink:0 }}>{item.icon}</div>
               <div>
                 <div style={{ fontSize:'.75rem', color:'var(--outline)', textTransform:'uppercase', letterSpacing:'.06em', marginBottom:4 }}>{item.title}</div>
                 <div style={{ fontSize:'.9rem', fontWeight:600, color:'var(--on-surface)', marginBottom:2 }}>{item.val}</div>

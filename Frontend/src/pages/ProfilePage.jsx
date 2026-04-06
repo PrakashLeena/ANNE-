@@ -5,7 +5,7 @@ import api from '../lib/api';
 
 const STATUS_COLORS = {
   pending:     { bg:'rgba(247,151,30,.1)',  color:'#f7971e', label:'Pending' },
-  'in-progress':{ bg:'rgba(83,221,252,.1)', color:'#53ddfc', label:'In Progress' },
+  'in-progress':{ bg:'rgba(255,176,0,.12)', color:'var(--secondary)', label:'In Progress' },
   completed:   { bg:'rgba(67,233,123,.1)',  color:'#43e97b', label:'Completed' },
   cancelled:   { bg:'rgba(255,110,132,.1)', color:'#ff6e84', label:'Cancelled' },
 };
@@ -33,7 +33,7 @@ export default function ProfilePage() {
     <div style={{ maxWidth:1000, margin:'0 auto', padding:'56px 32px' }}>
       {/* Profile header */}
       <div style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'32px', marginBottom:28, display:'flex', alignItems:'center', gap:24, flexWrap:'wrap' }}>
-        <div style={{ width:72, height:72, borderRadius:'50%', background:'linear-gradient(135deg,#ba9eff,#8455ef)', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', fontSize:'1.8rem', flexShrink:0 }}>
+        <div style={{ width:72, height:72, borderRadius:'50%', background:'linear-gradient(135deg,var(--primary),var(--primary-dim))', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', fontSize:'1.8rem', flexShrink:0 }}>
           {(user.displayName || user.email)?.[0]?.toUpperCase()}
         </div>
         <div style={{ flex:1 }}>
@@ -87,9 +87,9 @@ export default function ProfilePage() {
                     </div>
                     <div style={{ display:'flex', flexWrap:'wrap', gap:6, marginBottom:8 }}>
                       {order.components?.slice(0, 4).map(c => (
-                        <span key={c.id} style={{ background:'rgba(186,158,255,.08)', color:'var(--primary)', fontSize:'.65rem', padding:'2px 8px', borderRadius:'9999px' }}>{c.name}</span>
+                        <span key={c.id} style={{ background:'rgba(255,122,0,.09)', color:'var(--primary)', fontSize:'.65rem', padding:'2px 8px', borderRadius:'9999px' }}>{c.name}</span>
                       ))}
-                      {order.components?.length > 4 && <span style={{ background:'rgba(186,158,255,.08)', color:'var(--outline)', fontSize:'.65rem', padding:'2px 8px', borderRadius:'9999px' }}>+{order.components.length - 4} more</span>}
+                      {order.components?.length > 4 && <span style={{ background:'rgba(255,122,0,.09)', color:'var(--outline)', fontSize:'.65rem', padding:'2px 8px', borderRadius:'9999px' }}>+{order.components.length - 4} more</span>}
                     </div>
                     <div style={{ fontSize:'.72rem', color:'var(--outline)' }}>Submitted {new Date(order.createdAt).toLocaleDateString()}</div>
                   </div>

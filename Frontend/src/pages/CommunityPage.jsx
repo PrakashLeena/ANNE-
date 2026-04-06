@@ -56,7 +56,7 @@ export default function CommunityPage() {
       {user ? (
         <div style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px', marginBottom:28 }}>
           <div style={{ display:'flex', gap:12, alignItems:'flex-start' }}>
-            <div style={{ width:40, height:40, borderRadius:'50%', background:'linear-gradient(135deg,#ba9eff,#8455ef)', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', flexShrink:0 }}>
+            <div style={{ width:40, height:40, borderRadius:'50%', background:'linear-gradient(135deg,var(--primary),var(--primary-dim))', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', flexShrink:0 }}>
               {(user.displayName || user.email)?.[0]?.toUpperCase()}
             </div>
             <div style={{ flex:1 }}>
@@ -92,7 +92,7 @@ export default function CommunityPage() {
             <div key={post._id} style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px' }}>
               {/* Author */}
               <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:14 }}>
-                <div style={{ width:36, height:36, borderRadius:'50%', background:'linear-gradient(135deg,#53ddfc,#8455ef)', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', fontSize:'.85rem' }}>
+                <div style={{ width:36, height:36, borderRadius:'50%', background:'linear-gradient(135deg,var(--secondary),var(--primary-dim))', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', fontSize:'.85rem' }}>
                   {post.authorName?.[0]?.toUpperCase()}
                 </div>
                 <div>
