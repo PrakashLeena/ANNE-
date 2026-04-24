@@ -1,58 +1,170 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+﻿import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './AuthPages.css';
 
-const inputStyle = { width:'100%', background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'8px', padding:'14px 16px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.9rem', outline:'none', transition:'border-color .2s' };
+const SignupPage = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    agreeToTerms: false
+  });
 
-export default function SignupPage() {
-  const [name, setName]     = useState('');
-  const [email, setEmail]   = useState('');
-  const [pass, setPass]     = useState('');
-  const [err, setErr]       = useState('');
-  const [loading, setLoading] = useState(false);
-  const { signup } = useAuth();
-  const navigate = useNavigate();
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === 'checkbox' ? checked : value
+    });
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setErr('');
-    if (!name.trim()) return setErr('Name is required.');
-    if (pass.length < 6) return setErr('Password must be at least 6 characters.');
-    try {
-      setLoading(true);
-      await signup(name.trim(), email, pass);
-      navigate('/builder');
-    } catch (e) {
-      setErr(e.message?.replace('Firebase: ', '') || 'Signup failed.');
-    } finally { setLoading(false); }
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+    console.log('Signup attempt:', formData);
   };
 
   return (
-    <div style={{ minHeight:'90vh', display:'flex', alignItems:'center', justifyContent:'center', padding:'40px 24px' }}>
-      <div style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'40px 36px', width:'100%', maxWidth:420, position:'relative', overflow:'hidden', boxShadow:'0 10px 40px rgba(0,0,0,0.1)' }}>
-        {/* glow */}
-        <div style={{ position:'absolute', top:-80, right:-80, width:200, height:200, borderRadius:'50%', background:'rgba(17,101,255,.05)', filter:'blur(50px)', pointerEvents:'none' }} />
-        <div style={{ position:'relative', zIndex:1 }}>
-          <div style={{ fontSize:'1.5rem', fontWeight:700, color:'var(--on-surface)', marginBottom:4 }}>Create Account</div>
-          <p style={{ color:'var(--outline)', fontSize:'.82rem', marginBottom:28 }}>Join ANNEK and start building dream websites.</p>
-          <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:14 }}>
-            <input style={inputStyle} type="text" placeholder="Full name" value={name} onChange={e => setName(e.target.value)} required />
-            <input style={inputStyle} type="email" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} required />
-            <input style={inputStyle} type="password" placeholder="Password (6+ chars)" value={pass} onChange={e => setPass(e.target.value)} required />
-            {err && <div style={{ fontSize:'.78rem', color:'var(--error)', background:'rgba(255,110,132,.08)', padding:'10px 14px', borderRadius:'.5rem', borderLeft:'3px solid var(--error)' }}>{err}</div>}
-            <button type="submit" className="btn-primary" style={{ width:'100%', marginTop:4, justifyContent:'center', opacity: loading ? .7 : 1 }} disabled={loading}>
-              {loading ? 'Creating account…' : 'Create Account →'}
+    <div className="auth-page">
+      <div className="auth-container">
+        <div className="auth-form-section">
+          <div className="auth-header">
+            <h1>Create Your Account</h1>
+            <p>Start building your website today</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="auth-form">
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  placeholder="John"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  placeholder="Doe"
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder="john@example.com"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                placeholder="Create a strong password"
+                minLength="8"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+                placeholder="Confirm your password"
+              />
+            </div>
+
+            <div className="form-group checkbox-group">
+              <label className="checkbox-label">
+                <input
+                  type="checkbox"
+                  name="agreeToTerms"
+                  checked={formData.agreeToTerms}
+                  onChange={handleChange}
+                  required
+                />
+                I agree to the <Link to="/terms">Terms of Service</Link> and <Link to="/privacy">Privacy Policy</Link>
+              </label>
+            </div>
+
+            <button type="submit" className="auth-button">
+              Create Account
             </button>
           </form>
-          <div style={{ margin:'20px 0', borderTop:'1px solid var(--outline)', position:'relative', textAlign:'center' }}>
-            <span style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', background:'var(--surface)', padding:'0 12px', fontSize:'.72rem', color:'var(--on-surface-var)' }}>OR</span>
+
+          <div className="auth-divider">
+            <span>or</span>
           </div>
-          <p style={{ textAlign:'center', fontSize:'.82rem', color:'var(--outline)' }}>
-            Already have an account?{' '}
-            <Link to="/login" style={{ color:'var(--primary)', fontWeight:600, textDecoration:'none' }}>Sign in</Link>
-          </p>
+
+          <div className="social-login">
+            <button className="social-button google">
+              Sign up with Google
+            </button>
+            <button className="social-button facebook">
+              Sign up with Facebook
+            </button>
+          </div>
+
+          <div className="auth-footer">
+            <p>Already have an account? <Link to="/login">Sign in</Link></p>
+          </div>
+        </div>
+
+        <div className="auth-image-section">
+          <div className="auth-image-content">
+            <h2>Join the SiteCraft Community</h2>
+            <p>Get started with a free website and unlock premium features as you grow.</p>
+            <div className="auth-features">
+              <div className="feature">
+                <span className="feature-icon">🎨</span>
+                <span>1000+ Templates</span>
+              </div>
+              <div className="feature">
+                <span className="feature-icon">📱</span>
+                <span>Mobile Responsive</span>
+              </div>
+              <div className="feature">
+                <span className="feature-icon">🔒</span>
+                <span>Free SSL Certificate</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default SignupPage;

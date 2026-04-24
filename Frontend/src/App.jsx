@@ -3,13 +3,14 @@ import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
+import TemplatesPage from './pages/TemplatesPage';
+import FeaturesPage from './pages/FeaturesPage';
+import PricingPage from './pages/PricingPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-import BuilderPage from './pages/BuilderPage';
-import ProfilePage from './pages/ProfilePage';
-import CommunityPage from './pages/CommunityPage';
-import ContactPage from './pages/ContactPage';
-import AdminDashboard from './pages/AdminDashboard';
+import DashboardPage from './pages/DashboardPage';
+import AboutPage from './pages/AboutPage';
+import SupportPage from './pages/SupportPage';
 import './index.css';
 
 export default function App() {
@@ -20,13 +21,14 @@ export default function App() {
           <Navbar />
           <Routes>
             <Route path="/"          element={<HomePage />} />
+            <Route path="/templates" element={<TemplatesPage />} />
+            <Route path="/features"  element={<FeaturesPage />} />
+            <Route path="/pricing"   element={<PricingPage />} />
             <Route path="/login"     element={<LoginPage />} />
             <Route path="/signup"    element={<SignupPage />} />
-            <Route path="/builder"   element={<BuilderPage />} />
-            <Route path="/profile"   element={<ProfilePage />} />
-            <Route path="/community" element={<CommunityPage />} />
-            <Route path="/contact"   element={<ContactPage />} />
-            <Route path="/admin"     element={<AdminDashboard />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/about"     element={<AboutPage />} />
+            <Route path="/support"   element={<SupportPage />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>
