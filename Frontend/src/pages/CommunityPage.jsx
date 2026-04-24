@@ -54,14 +54,14 @@ export default function CommunityPage() {
 
       {/* Compose */}
       {user ? (
-        <div style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px', marginBottom:28 }}>
+        <div style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'20px 24px', marginBottom:28 }}>
           <div style={{ display:'flex', gap:12, alignItems:'flex-start' }}>
             <div style={{ width:40, height:40, borderRadius:'50%', background:'linear-gradient(135deg,var(--primary),var(--primary-dim))', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', flexShrink:0 }}>
               {(user.displayName || user.email)?.[0]?.toUpperCase()}
             </div>
             <div style={{ flex:1 }}>
               <textarea value={content} onChange={e => setContent(e.target.value)}
-                style={{ width:'100%', background:'var(--surface-high)', border:'none', borderRadius:'.5rem', padding:'12px 14px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.875rem', outline:'none', resize:'vertical', minHeight:80 }}
+                style={{ width:'100%', background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'8px', padding:'12px 14px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.875rem', outline:'none', resize:'vertical', minHeight:80, transition:'border-color .2s' }}
                 placeholder="Share an idea, feedback, or showcase your website…" />
               <div style={{ display:'flex', justifyContent:'flex-end', marginTop:10 }}>
                 <button onClick={handlePost} className="btn-primary" style={{ padding:'9px 20px', opacity: posting ? .7 : 1 }} disabled={posting}>
@@ -72,7 +72,7 @@ export default function CommunityPage() {
           </div>
         </div>
       ) : (
-        <div style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px', marginBottom:28, textAlign:'center' }}>
+        <div style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'20px 24px', marginBottom:28, textAlign:'center' }}>
           <p style={{ color:'var(--outline)', marginBottom:12 }}>Sign in to post and interact with the community.</p>
           <Link to="/login" className="btn-primary" style={{ textDecoration:'none' }}>Sign In →</Link>
         </div>
@@ -89,7 +89,7 @@ export default function CommunityPage() {
       ) : (
         <div style={{ display:'flex', flexDirection:'column', gap:16 }}>
           {posts.map(post => (
-            <div key={post._id} style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px' }}>
+            <div key={post._id} style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'20px 24px' }}>
               {/* Author */}
               <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:14 }}>
                 <div style={{ width:36, height:36, borderRadius:'50%', background:'linear-gradient(135deg,var(--secondary),var(--primary-dim))', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', fontSize:'.85rem' }}>

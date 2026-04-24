@@ -19,7 +19,7 @@ export default function ContactPage() {
     }
   };
 
-  const inputStyle = { width:'100%', background:'var(--surface-high)', border:'none', borderBottom:'1.5px solid var(--outline)', borderRadius:'.5rem .5rem 0 0', padding:'13px 16px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.875rem', outline:'none', transition:'border-color .2s' };
+  const inputStyle = { width:'100%', background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'8px', padding:'13px 16px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.875rem', outline:'none', transition:'border-color .2s' };
 
   return (
     <div style={{ maxWidth:1100, margin:'0 auto', padding:'72px 32px' }}>
@@ -37,8 +37,8 @@ export default function ContactPage() {
             { icon:'💬', title:'Live Chat', val:'Available in-app', sub:'Mon-Fri 9am–6pm IST' },
             { icon:'🌍', title:'Location', val:'Remote-first studio', sub:'Serving clients worldwide' },
           ].map(item => (
-            <div key={item.title} style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px', display:'flex', gap:16, alignItems:'flex-start' }}>
-              <div style={{ width:44, height:44, borderRadius:'.75rem', background:'rgba(255,122,0,.10)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1.25rem', flexShrink:0 }}>{item.icon}</div>
+            <div key={item.title} style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'20px 24px', display:'flex', gap:16, alignItems:'flex-start' }}>
+              <div style={{ width:44, height:44, borderRadius:'.75rem', background:'rgba(17,101,255,.10)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'1.25rem', flexShrink:0 }}>{item.icon}</div>
               <div>
                 <div style={{ fontSize:'.75rem', color:'var(--outline)', textTransform:'uppercase', letterSpacing:'.06em', marginBottom:4 }}>{item.title}</div>
                 <div style={{ fontSize:'.9rem', fontWeight:600, color:'var(--on-surface)', marginBottom:2 }}>{item.val}</div>
@@ -49,7 +49,7 @@ export default function ContactPage() {
         </div>
 
         {/* Form */}
-        <div style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'32px' }}>
+        <div style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'32px' }}>
           {status === 'sent' ? (
             <div style={{ textAlign:'center', padding:'40px 0' }}>
               <div style={{ fontSize:'3rem', marginBottom:16 }}>✅</div>

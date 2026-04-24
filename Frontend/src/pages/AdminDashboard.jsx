@@ -64,7 +64,7 @@ export default function AdminDashboard() {
       {/* Stats */}
       <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:14, marginBottom:32 }}>
         {stats.map(s => (
-          <div key={s.label} style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px' }}>
+          <div key={s.label} style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'20px 24px' }}>
             <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:12 }}>
               <div style={{ fontSize:'1.5rem' }}>{s.icon}</div>
             </div>
@@ -87,13 +87,13 @@ export default function AdminDashboard() {
           {loading ? (
             <div style={{ textAlign:'center', padding:40, color:'var(--outline)' }}>Loading orders…</div>
           ) : orders.length === 0 ? (
-            <div style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:40, textAlign:'center', color:'var(--outline)' }}>No orders yet.</div>
+            <div style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:40, textAlign:'center', color:'var(--outline)' }}>No orders yet.</div>
           ) : (
             <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
               {orders.map(order => {
                 const sc = STATUS_COLORS[order.status] || STATUS_COLORS.pending;
                 return (
-                  <div key={order._id} style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px' }}>
+                  <div key={order._id} style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'20px 24px' }}>
                     <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexWrap:'wrap', gap:14 }}>
                       <div style={{ flex:1 }}>
                         <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:8 }}>

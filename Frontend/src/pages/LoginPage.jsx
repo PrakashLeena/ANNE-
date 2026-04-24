@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-const inputStyle = { width:'100%', background:'var(--surface-high)', border:'none', borderBottom:'1.5px solid var(--outline)', borderRadius:'.5rem .5rem 0 0', padding:'14px 16px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.9rem', outline:'none' };
+const inputStyle = { width:'100%', background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'8px', padding:'14px 16px', color:'var(--on-surface)', fontFamily:'Inter', fontSize:'.9rem', outline:'none', transition:'border-color .2s' };
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -37,10 +37,10 @@ export default function LoginPage() {
 
   return (
     <div style={{ minHeight:'90vh', display:'flex', alignItems:'center', justifyContent:'center', padding:'40px 24px' }}>
-      <div style={{ background:'var(--surface-container)', borderRadius:'1.25rem', padding:'40px 36px', width:'100%', maxWidth:420, position:'relative', overflow:'hidden' }}>
-        <div style={{ position:'absolute', top:-80, left:-80, width:200, height:200, borderRadius:'50%', background:'rgba(255,122,0,.10)', filter:'blur(50px)', pointerEvents:'none' }} />
+      <div style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'40px 36px', width:'100%', maxWidth:420, position:'relative', overflow:'hidden', boxShadow:'0 10px 40px rgba(0,0,0,0.1)' }}>
+        <div style={{ position:'absolute', top:-80, left:-80, width:200, height:200, borderRadius:'50%', background:'rgba(17,101,255,.05)', filter:'blur(50px)', pointerEvents:'none' }} />
         <div style={{ position:'relative', zIndex:1 }}>
-          <div className="pg-txt" style={{ fontSize:'1.5rem', fontWeight:700, marginBottom:4 }}>Welcome Back</div>
+          <div style={{ fontSize:'1.5rem', fontWeight:700, color:'var(--on-surface)', marginBottom:4 }}>Welcome Back</div>
           <p style={{ color:'var(--outline)', fontSize:'.82rem', marginBottom:28 }}>Sign in to your ANNEK account.</p>
           <form onSubmit={handleSubmit} style={{ display:'flex', flexDirection:'column', gap:14 }}>
             <input style={inputStyle} type="email" placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)} required />
@@ -50,10 +50,10 @@ export default function LoginPage() {
               {loading ? 'Signing in…' : 'Sign In →'}
             </button>
           </form>
-          <div style={{ margin:'20px 0', borderTop:'1px solid rgba(64,72,93,.3)', position:'relative', textAlign:'center' }}>
-            <span style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', background:'var(--surface-container)', padding:'0 12px', fontSize:'.72rem', color:'var(--outline)' }}>OR</span>
+          <div style={{ margin:'20px 0', borderTop:'1px solid var(--outline)', position:'relative', textAlign:'center' }}>
+            <span style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', background:'var(--surface)', padding:'0 12px', fontSize:'.72rem', color:'var(--on-surface-var)' }}>OR</span>
           </div>
-          <button type="button" className="btn-primary" onClick={handleGoogle} style={{ width:'100%', justifyContent:'center', background:'#ffffff', color:'#111827', border:'1px solid rgba(64,72,93,.3)', opacity: loading ? .7 : 1 }} disabled={loading}>
+          <button type="button" onClick={handleGoogle} style={{ width:'100%', padding:'14px', borderRadius:'8px', background:'var(--surface)', color:'var(--on-surface)', border:'1px solid var(--outline)', fontSize:'.9rem', fontWeight:600, cursor:'pointer', transition:'all .2s', opacity: loading ? .7 : 1 }} disabled={loading}>
             Continue with Google
           </button>
           <p style={{ textAlign:'center', fontSize:'.82rem', color:'var(--outline)' }}>

@@ -32,7 +32,7 @@ export default function ProfilePage() {
   return (
     <div style={{ maxWidth:1000, margin:'0 auto', padding:'56px 32px' }}>
       {/* Profile header */}
-      <div style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'32px', marginBottom:28, display:'flex', alignItems:'center', gap:24, flexWrap:'wrap' }}>
+      <div style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'32px', marginBottom:28, display:'flex', alignItems:'center', gap:24, flexWrap:'wrap', boxShadow:'0 4px 20px rgba(0,0,0,0.05)' }}>
         <div style={{ width:72, height:72, borderRadius:'50%', background:'linear-gradient(135deg,var(--primary),var(--primary-dim))', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, color:'#000', fontSize:'1.8rem', flexShrink:0 }}>
           {(user.displayName || user.email)?.[0]?.toUpperCase()}
         </div>
@@ -54,7 +54,7 @@ export default function ProfilePage() {
           { label:'In Progress', value: orders.filter(o => o.status === 'in-progress').length },
           { label:'Completed', value: orders.filter(o => o.status === 'completed').length },
         ].map(s => (
-          <div key={s.label} style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px' }}>
+          <div key={s.label} style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'20px 24px' }}>
             <div style={{ fontSize:'2rem', fontWeight:700, color:'var(--primary)', marginBottom:4 }}>{s.value}</div>
             <div style={{ fontSize:'.75rem', color:'var(--outline)', textTransform:'uppercase', letterSpacing:'.06em' }}>{s.label}</div>
           </div>
@@ -67,7 +67,7 @@ export default function ProfilePage() {
         {loading ? (
           <div style={{ textAlign:'center', padding:40, color:'var(--outline)' }}>Loading orders…</div>
         ) : orders.length === 0 ? (
-          <div style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'40px', textAlign:'center' }}>
+          <div style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'40px', textAlign:'center' }}>
             <div style={{ fontSize:'2.5rem', marginBottom:14 }}>📋</div>
             <p style={{ color:'var(--outline)', marginBottom:16 }}>No orders yet. Start building your website!</p>
             <Link to="/builder" className="btn-primary" style={{ textDecoration:'none' }}>Start Building →</Link>
@@ -77,7 +77,7 @@ export default function ProfilePage() {
             {orders.map(order => {
               const s = STATUS_COLORS[order.status] || STATUS_COLORS.pending;
               return (
-                <div key={order._id} style={{ background:'var(--surface-container)', borderRadius:'1rem', padding:'20px 24px', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap' }}>
+                <div key={order._id} style={{ background:'var(--surface)', border:'1px solid var(--outline)', borderRadius:'16px', padding:'20px 24px', display:'flex', alignItems:'center', gap:16, flexWrap:'wrap' }}>
                   <div style={{ flex:1 }}>
                     <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:8 }}>
                       <div style={{ fontSize:'.85rem', fontWeight:600, color:'var(--on-surface)' }}>
@@ -87,9 +87,9 @@ export default function ProfilePage() {
                     </div>
                     <div style={{ display:'flex', flexWrap:'wrap', gap:6, marginBottom:8 }}>
                       {order.components?.slice(0, 4).map(c => (
-                        <span key={c.id} style={{ background:'rgba(255,122,0,.09)', color:'var(--primary)', fontSize:'.65rem', padding:'2px 8px', borderRadius:'9999px' }}>{c.name}</span>
+                        <span key={c.id} style={{ background:'rgba(17,101,255,.09)', color:'var(--primary)', fontSize:'.65rem', padding:'2px 8px', borderRadius:'9999px' }}>{c.name}</span>
                       ))}
-                      {order.components?.length > 4 && <span style={{ background:'rgba(255,122,0,.09)', color:'var(--outline)', fontSize:'.65rem', padding:'2px 8px', borderRadius:'9999px' }}>+{order.components.length - 4} more</span>}
+                      {order.components?.length > 4 && <span style={{ background:'rgba(17,101,255,.09)', color:'var(--outline)', fontSize:'.65rem', padding:'2px 8px', borderRadius:'9999px' }}>+{order.components.length - 4} more</span>}
                     </div>
                     <div style={{ fontSize:'.72rem', color:'var(--outline)' }}>Submitted {new Date(order.createdAt).toLocaleDateString()}</div>
                   </div>
