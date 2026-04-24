@@ -32,8 +32,8 @@ export default function Navbar() {
     <>
       <header style={{
         position: 'sticky', top: 0, zIndex: 50,
-        background: scrolled ? 'rgba(14,18,21,0.95)' : 'var(--surface-low)',
-        borderBottom: '1px solid rgba(64,72,93,0.15)',
+        background: scrolled ? 'rgba(255,255,255,0.95)' : '#fff',
+        borderBottom: '1px solid var(--outline)',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
         transition: 'all .3s',
       }}>
@@ -42,7 +42,7 @@ export default function Navbar() {
           <Link to="/" style={{ textDecoration:'none' }}>
             <span style={{ display:'inline-flex', alignItems:'center', gap:10 }}>
               <img src={logo} alt="ANNEK" style={{ width:30, height:30, objectFit:'contain', borderRadius:6 }} />
-              <span className="pg-txt" style={{ fontSize:'1.3rem', fontWeight:700, letterSpacing:'-.04em' }}>ANNEK</span>
+              <span className="pg-txt" style={{ fontSize:'1.3rem', fontWeight:700, letterSpacing:'-.04em', color:'var(--primary)' }}>ANNEK</span>
             </span>
           </Link>
 
@@ -50,14 +50,14 @@ export default function Navbar() {
           <div className="hide-mobile" style={{ display:'flex', gap:'24px', alignItems:'center' }}>
             {navLinks.map(l => (
               <Link key={l.to} to={l.to} style={{
-                color: location.pathname === l.to ? 'var(--primary)' : 'var(--on-surface-var)',
+                color: location.pathname === l.to ? 'var(--primary)' : 'var(--on-surface)',
                 fontSize:'.875rem', textDecoration:'none', fontWeight:500,
                 transition:'color .2s',
                 borderBottom: location.pathname === l.to ? '1.5px solid var(--primary)' : 'none',
                 paddingBottom:'2px',
               }}
                 onMouseEnter={e => e.target.style.color='var(--primary)'}
-                onMouseLeave={e => e.target.style.color = location.pathname === l.to ? 'var(--primary)' : 'var(--on-surface-var)'}
+                onMouseLeave={e => e.target.style.color = location.pathname === l.to ? 'var(--primary)' : 'var(--on-surface)'}
               >{l.label}</Link>
             ))}
           </div>
@@ -94,7 +94,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div style={{ background:'var(--surface-low)', padding:'16px 24px', borderTop:'1px solid rgba(64,72,93,.15)', display:'flex', flexDirection:'column', gap:'12px' }}>
+          <div style={{ background:'var(--surface)', padding:'16px 24px', borderTop:'1px solid var(--outline)', display:'flex', flexDirection:'column', gap:'12px' }}>
             {navLinks.map(l => (
               <Link key={l.to} to={l.to} onClick={() => setMenuOpen(false)} style={{ color:'var(--on-surface-var)', textDecoration:'none', fontSize:'.9rem', fontWeight:500 }}>{l.label}</Link>
             ))}
